@@ -12,139 +12,30 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="javascript/main.js"></script>
 		<script type="text/javascript" src="galleria/galleria-1.2.7.min.js"></script>
-		
 		<!-- 	Galleria Theme Setter	 -->
-
 		<script type="text/javascript">
    			 Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
    			 Galleria.run('#galleria');
     	</script>
-
 		<!-- 	End of Galleria Theme Setter	 -->
-		
-		<!-- 	Google Analytics Code	 -->
-		
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-30722787-1']);
-		  _gaq.push(['_setAllowLinker', true]);
-		  _gaq.push(['_trackPageview']);
-		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-		<!-- 	End of Google Analytics Code	 -->
-		
-		<!-- 	Google Analytics API Code	 -->
-
-		<script type="text/javascript">
-		
-		var clientId = '338246663823';
-		var apiKey = 'AIzaSyBg7yVxrFbtk28ZhtUA3oXVA0eRO3Gx2Fc';
-		// To enter one or more authentication scopes, refer to the documentation for the API.
-	    var scopes = 'https://www.google.com/analytics/feeds/';
-	      
-		function handleClientLoad() {
-			gapi.client.setApiKey(apiKey);
-	        window.setTimeout(checkAuth,1);
-	    }
-	    
-	    function checkAuth() {
-	        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
-	    }
-
-		function handleAuthResult(authResult) {
-	        if (authResult) {
-	          makeApiCall();
-	        } else {
-	          console.log('AUTH FAILED');
-	        }
-	      }
-		
-	      function appendResults(text) {
-	        var results = document.getElementById('results');
-	        results.appendChild(document.createElement('P'));
-	        if ((text)) {
-		        results.appendChild(document.createTextNode(text));
-	        }
-	        console.log(text);
-	      }
-	
-	      function makeAPICall() {
-	        var params = {
-	        	id : 'AIzaSyBg7yVxrFbtk28ZhtUA3oXVA0eRO3Gx2Fc',
-	        	metrics : 'ga:pageviews'
-	        
-	        };
-	        var reqs = {
-	        	'path' : 'https://www.googleapis.com/analytics/v3/data/ga?',
-	        	'params' : params,
-	        	'callback' : appendResults()
-	        
-	        };
-	        gapi.client.request(reqs);
-	      }
-	    </script>
-   		<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-   		
-		<!-- 	End of Google Analytics API Code	 -->
-
+		<!--#include virtual="includes/analytics.html" -->
 	</head>
 	<body>
-	<!-- Facebook Code	 -->
-	<div id="fb-root"></div>
-	<script>
-	window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '372503369467075', // App ID
-      channelUrl : 'www.sisextension.com/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-
-    // Additional initialization code here
-  };
-	(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=372503369467075";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<!-- End of Facebook Code	 -->
-	<div id="header">
-		<div class="left" id="left_header">
-<!-- 			<img src="https://sis.rit.edu/info/sis_images/rit_logo.gif" alt="RIT Header" width="161" height="56"/> -->
-			<span id="sis_extension">RIT SIS Extension</span>
-			<div id="results"></div>
-		</div>
-		<div class="right" style="display:inline-block;" id="right_header">
-<!-- 			<span id="facebook">Like us on <a id="facebook_link" target="_blank" href="http://facebook.com/sisextension">Facebook</a></span> -->
-		<div class="fb-like" data-href="https://facebook.com/sisextension" data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark" data-font="verdana"></div>
-		</div>
-	</div>
-	<!-- End of Header	 -->
-	<div id="page_wrap">
-	<a href="index.html">BACK</a>
-		<h1>Mozilla Firefox</h1>
-		<h4 class="underline">Installation Instructions</h4>
-		<ol>
-			<li><p>Click on the "Firefox Extension Download" button below.</p></li>
-			<a href="http://www.sisextension.com/downloads/rit_sis_extension-1.0.0-fx.xpi" onclick="_gaq.push([\'_trackEvent\', \'Script\', \'Downloaded\', \'Firefox Page\']);"><span class="download align_center">Firefox Extension Download</span></a>
-			<li><p>A pop-up will appear confirming you would like to install the extension. Click "Install Now".</p></li>
-			<img src="images/firefox_addon_install_dialog.png" alt="Firefox Install Dialog" width="499" height="333"/>
-			<li><p>Visit the new <a href="http://infocenter.rit.edu" target="new">RIT SIS page</a> and enjoy!</p></li>
-		</ol>
+	<!--#include virtual="includes/header.html" -->
+		<div id="page_wrap">
+			<a href="index.html">BACK</a>
+			<!--#include virtual="includes/disclaimer.html" -->
+			<h1>Mozilla Firefox</h1>
+			<h4 class="underline">Installation Instructions</h4>
+			<ol>
+				<li><p>Click on the "Firefox Extension Download" button below.</p></li>
+				<a href="downloads/rit_sis_extension-1.0.0-fx.xpi" onclick="_gaq.push([\'_trackEvent\', \'Script\', \'Downloaded\', \'Firefox Page\']);"><span class="download align_center">Firefox Extension Download</span></a>
+				<li><p>A pop-up will appear confirming you would like to install the extension. Click "Install Now".</p></li>
+				<img src="images/firefox_addon_install_dialog.png" alt="Firefox Install Dialog" width="499" height="333"/>
+				<li><p>Visit the new <a href="http://infocenter.rit.edu" target="new">RIT SIS page</a> and enjoy!</p></li>
+			</ol>
 		</div>
 		<!-- End of page_wrap -->
-		<div id="page_footer">
-			<h4>Thank you for being a part of something bigger.</h4>
-			<div><span>Designed, developed, and supported by <a href="mailto:tjd9961@rit.edu">Thomas DeMeo</a> and <a href="mailto:def2191@rit.edu">Daniel Fenton</a></span></div>
-		</div>
-		<!-- End of page_footer -->
+		<!--#include virtual="includes/footer.html" -->
 	</body>
 </html>

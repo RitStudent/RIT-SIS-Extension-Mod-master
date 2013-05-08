@@ -10,7 +10,7 @@
  
 	// Google Analytics Code
 	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-30757586-1']);
+	_gaq.push(['_setAccount', 'UA-40032524-1']);
 	_gaq.push(['_setAllowLinker', true]);	
 	_gaq.push(['_trackPageview']);
 	
