@@ -314,6 +314,16 @@ li#safari {
 	color: white;
 }
 
+.disclaimer {
+    border:1px solid #ed541d;
+    padding:10px;
+    margin-bottom:5px;
+    font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+    font-size:110%;
+    color:#660000;
+    background-color:#fef5f1;
+}
+
 
 /* Footer 
 -----------------------------------------------------------------------------*/

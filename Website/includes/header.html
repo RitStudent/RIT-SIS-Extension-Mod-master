@@ -1,0 +1,33 @@
+<!-- Facebook Code	 -->
+<div id="fb-root"></div>
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '372503369467075', // App ID
+			channelUrl : 'https://www-staging.rit.edu/its/sisextension/channel.html', // Channel File
+			status     : true, // check login status
+			cookie     : true, // enable cookies to allow the server to access the session
+			xfbml      : true  // parse XFBML
+		});
+	};
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=372503369467075";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- End of Facebook Code	 -->
+<div id="header">
+	<div class="left" id="left_header">
+		<!--<img src="https://sis.rit.edu/info/sis_images/rit_logo.gif" alt="RIT Header" width="161" height="56"/> -->
+		<span id="sis_extension">RIT SIS Extension</span>
+		<div id="results"></div>
+	</div>
+	<div class="right" style="display:inline-block;" id="right_header">
+		<!-- <span id="facebook">Like us on <a id="facebook_link" target="_blank" href="http://facebook.com/sisextension">Facebook</a></span> -->
+		<div class="fb-like" data-href="https://facebook.com/sisextension" data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark" data-font="verdana"></div>
+	</div>
+</div>
+<!-- End of Header	 -->
