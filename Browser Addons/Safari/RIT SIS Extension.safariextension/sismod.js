@@ -10,7 +10,7 @@ function loadExtensionScript(callback) {
     var script = document.createElement("script");
     var head  = document.getElementsByTagName('head')[0];
 
-    script.setAttribute("src", "https://people.rit.edu/~tjd9961/SIS/src/sis_extension.js");
+    script.setAttribute("src", "https://www.rit.edu/its/sisextension/SIS/src/sis_extension.js");
     script.addEventListener('load', function () {
         var script = document.createElement("script");
         script.textContent = "(" + callback.toString() + ")();";

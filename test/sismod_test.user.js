@@ -18,8 +18,8 @@
 
 // @require            https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @icon               http://development.garnishmobile.com/TriSigma/background_tile.jpg
-// @downloadURL        https://people.rit.edu/~tjd9961/RIT_SIS/sismod.user.js
-// @updateURL          https://people.rit.edu/~tjd9961/RIT_SIS/sismod.user.js
+// @downloadURL        https://www.rit.edu/its/sisextension/SIS/sismod.user.js
+// @updateURL          https://www.rit.edu/its/sisextension/SIS/sismod.user.js
 // @version            1.0.0
 // ==/UserScript==
 
@@ -27,7 +27,7 @@ function loadExtensionScript(callback) {
     var script = document.createElement("script");
     var head  = document.getElementsByTagName('head')[0];
 
-    script.setAttribute("src", "https://people.rit.edu/~tjd9961/SIS/test/src/sis_extension.js");
+    script.setAttribute("src", "https://www.rit.edu/its/sisextension/SIS/test/src/sis_extension.js");
     script.addEventListener('load', function () {
         var script = document.createElement("script");
         script.textContent = "(" + callback.toString() + ")();";
