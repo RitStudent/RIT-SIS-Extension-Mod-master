@@ -13,10 +13,10 @@
 var testEnvironment = false;
 
 // Test Path
-var testPath = 'https://people.rit.edu/~tjd9961/SIS/test/src';
+var testPath = 'https://www.rit.edu/its/sisextension/SIS/test/src';
 
 // Production Path
-var prodPath = 'https://people.rit.edu/~tjd9961/SIS/src';
+var prodPath = 'https://www.rit.edu/its/sisextension/SIS/src';
 
 // Adds support for jQuery
 // a function that loads jQuery and calls a callback function when jQuery has finished loading
