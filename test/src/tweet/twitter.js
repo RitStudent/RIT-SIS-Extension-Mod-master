@@ -226,7 +226,7 @@ window.getTwitters = function (target, id, count, options) {
         setTimeout(function () {
           var script = document.createElement('script');
           script.onload = script.onreadystatechange = getTweets;
-          script.src = 'https://people.rit.edu/~tjd9961/SIS/test/src/tweet/twitterlib.min.js';
+          script.src = 'https://www.rit.edu/its/sisextension/SIS/test/src/tweet/twitterlib.min.js';
 
           var head = document.head || document.getElementsByTagName('head')[0];
           head.insertBefore(script, head.firstChild);
