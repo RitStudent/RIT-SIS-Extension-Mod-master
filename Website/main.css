@@ -13,24 +13,22 @@ email:     thomasdemeo@gmail.com
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: Georgia, Palatino, "Times New Roman";
+    font-family: "Century Gothic",Georgia, Palatino, "Times New Roman";
 /*     display: block; */
 }
 
 /* Set up classes for floating and clearing */
-.clear
-    {
+.clear{
     clear:both;
 }
 
-.right
-    {
+.right{
     float: right;
 }
 
-.left
-    {
+.left{
     float: left;
+    margin-top: 10px;
 }
 
 .inline {
@@ -38,6 +36,10 @@ email:     thomasdemeo@gmail.com
 }
 
 .underline {
+	text-decoration: underline;
+}
+
+a:hover{
 	text-decoration: underline;
 }
 
@@ -82,72 +84,73 @@ body {
 
 /* Set up header sizes */
 
-h1
-    {
+h1{
     font-size: 2.2em;
+    font-family: Georgia,Palatino, "Times New Roman";
 }
 
-h2
-    {
+h2{
     font-size: 2.0em;
+    font-family: Georgia,Palatino, "Times New Roman";
 }
 
-h3
-    {
+h3{
     font-size: 1.8em;
 }
 
-h4
-    {
+h4{
     font-size: 1.6em;
+    font-family: Georgia,Palatino, "Times New Roman";
 }
 
-h5
-    {
+h5{
     font-size: 1.4em;
 }
 
-p
-    {
+p{
     font-size: 1.2em;
 }
 
-a {
+a{
 	text-decoration: none;
 	color: #F36E21;
-
 }
 
-ol {
+#feature_list li{
+	padding-bottom:10px;
+	font-family: "Century Gothic";
+}
+
+ol{
 	font: italic 1.5em Georgia, Times, serif;
   	color: #999999;
 }
 
-ol li {
+ol li{
 	margin: 5px;
 }
 
-ol p {
+ol p{
   font: normal 1.0em Arial, Helvetica, sans-serif;
   color: #000000;
 }
 
-ol span.download {
+ol span.download{
 	font-size: 1.2em;
 }
 
-#browser_select {
+#browser_select{
 	margin-top: 25px;
 	margin-bottom: 10px;
 
 }
 
-ul#browser_list {
+ul#browser_list{
 /* 	display: inline; */
 /* 	width: 950px; */
 }
 
-ul#browser_list li {
+ul#browser_list li{
 	display: inline-block;
 	width: 300px;
 	height: 8em;
@@ -155,22 +158,22 @@ ul#browser_list li {
 	text-align: right;
 }
 
-ul#feature_list {
+ul#feature_list{
 	font-size: 14px;
 }
 
 
 
-li span {
+li span{
 	color: #494a4b;
+	font-family: Georgia,Palatino, "Times New Roman";
 	font-size: 1.8em;
 	line-height: 4.5em;
 	margin-right: 20px;
-
 }
 
 
-li#chrome {
+li#chrome{
  	background-color: #4DB849; 
 	background: -moz-linear-gradient(top,  #76d571,  #4DB849);
 	background: -webkit-gradient(linear, left top, left bottom, from(#76d571), to(#4DB849));
@@ -260,21 +263,21 @@ li#safari {
 /* For mouseover */
 
 #tt {
- position:absolute;
- display:block;
- background-color: #494a4b;
+ 	position:absolute;
+ 	display:block;
+	background-color: #494a4b;
 }
 #tttop {
- display:block;
- height:5px;
- margin-left:5px;
+ 	display:block;
+	height:5px;
+ 	margin-left:5px;
 }
 #ttcont {
- display:block;
- padding:2px 12px 3px 7px;
- margin-left:5px;
- background-color: #494a4b;
- color:#fff;
+	display:block;
+	padding:2px 12px 3px 7px;
+	margin-left:5px;
+	background-color: #494a4b;
+	color:#fff;
 }
 #ttbot {
 	display:block;
@@ -284,9 +287,10 @@ li#safari {
 
 #sis_extension {
 	font-size: 52px;
-   margin: 10px;
-   margin-top: 0px;
-   letter-spacing: 2px;
+	font-family: "Minion-Pro",Georgia;
+	margin: 10px;
+	margin-top: 0px;
+	letter-spacing: 2px;
 }
 
 #right_header {
@@ -330,7 +334,52 @@ li#safari {
 
 #page_footer {
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 60px;
 	font-size: 12px;
+}
+
+#footer{
+	width: 100%;
+	height: 50px;
+	background:#F9F8F5 url(http://www.rit.edu/_files/footer.gif);
+	background-repeat: repeat-x;;
+	border: 1px solid #F8F7ED;
+	padding-top: .6em;
+	margin-top: 60px;
+}
+
+#footer_contents{
+	width: 65%;
+	margin: 0 auto;
+	padding-top: 1em;
+	font-size: 74%; 
+	color: #BBBBBB;
+}
+
+#footercontents p{
+	margin-left: 23px;
+	margin-right: 23px;
+}
+
+#footer .footer1{
+	float: left;
+	font-family: arial,helvetica,sans-serif;
+}
+
+#footer .footer2{
+	text-align: right;
+	float: right;
+	font-family: arial,helvetica,sans-serif;
+}
+
+#footer a:link, #footer a:visited{
+	font-family: arial,helvetica,sans-serif;
+	color: #808080;
+	text-decoration: none;
+}
+
+#footer a:hover{
+	font-family: arial,helvetica,sans-serif;
+	text-decoration: underline;
 }
 
