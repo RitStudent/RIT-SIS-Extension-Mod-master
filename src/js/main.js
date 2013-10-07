@@ -458,91 +458,37 @@
 					var unitRow13 = document.getElementById('DERIVED_SSS_GRD_DESCR1$13');
 					var unitRow14 = document.getElementById('DERIVED_SSS_GRD_DESCR1$14');
 
-					//Runs through a series of if statements comparing the innerHTML in each row to a certain string
-					//If the innerHTML == string then we can pull the ID of the STATS_CUM$(Row #) to be the variable
+					/*
+					Get the total grade points and units taken value by iterating through the table with id = TERM_STATS$scroll$0
+					Then get all the <tr> elements in the table
+					The last three <tr> elements are TOTAL GRADE POINTS, UNITS TAKEN, and GPA respectively.
+					Get the last <td> element of each <tr> element to retrieve the text of the fields.
+			
+					*/
 
-					/********************************** ---Total Grade Points--- ************************************/
-					var total_grade_points;
-					if(unitRow10 == 'Total Grade Points')
-					{
-						//console.log("Total Grade Points");
-						total_grade_points = document.getElementById('STATS_CUMS$10');
-						//console.log(total_grade_points);
-					}
-					if(unitRow11)
-					{	
-						if(unitRow11.innerHTML == 'Total Grade Points')
-						{
-							//console.log("Total Grade Points");
-							total_grade_points = document.getElementById('STATS_CUMS$11');
-							//console.log(total_grade_points);
-						}
-					}	
-					if (unitRow12)
-					{
-						if(unitRow12.innerHTML == 'Total Grade Points')
-						{
-							//console.log("Total Grade Points");
-							total_grade_points = document.getElementById('STATS_CUMS$12');
-							//console.log(total_grade_points);
-						}
-					}
-					if(unitRow13)
-					{	
-						if(unitRow13.innerHTML == 'Total Grade Points')
-						{
-							//console.log("Total Grade Points");
-							total_grade_points = document.getElementById('STATS_CUMS$13');
-							//console.log(total_grade_points);
-						}
-					}
-
-					/********************************** ---Calculating Units Taken--- ************************************/
-					var units_taken;
-					if(unitRow11)
-					{	
-						if(unitRow11.innerHTML == '/&nbsp Units Taken Toward GPA')
-						{
-							//console.log("Total Grade Points");
-							units_taken = document.getElementById('STATS_CUMS$11');
-							//console.log(total_grade_points);
-						}
-					}	
-					if(unitRow12)
-					{
-						if(unitRow12.innerHTML == '/&nbsp; Units Taken Toward GPA')
-						{
-							//console.log("Units Taken Towards GPA");
-							units_taken = document.getElementById('STATS_CUMS$12');
-							//console.log(units_taken);
-						}
-					}	
-					if (unitRow13)
-					{
-						if(unitRow13.innerHTML == '/&nbsp; Units Taken Toward GPA')
-						{
-							//console.log("Units Taken Towards GPA");
-							units_taken = document.getElementById('STATS_CUMS$13');
-							//console.log(units_taken);
-						}
-					}
-					if(unitRow14)
-					{	
-						if(unitRow14.innerHTML == '/&nbsp; Units Taken Toward GPA')
-						{
-							//console.log("Units Taken Towards GPA");
-							units_taken = document.getElementById('STATS_CUMS$14');
-							//console.log(units_taken);
-						}
-					}
+					//GET TABLE
+					/////////////////////////////////////////////////////////////////
+					var gpaTable = document.getElementById('TERM_STATS$scroll$0').getElementsByTagName('tr');
 					
-					var total = parseFloat(total_grade_points.innerHTML);
-					var units = parseFloat(units_taken.innerHTML);
+					//Get TOTAL GRADE POINTS VALUE
+					var totalGradePointsRow = gpaTable[gpaTable.length - 3].getElementsByTagName('td')
+					var totalGradePointsColumn = totalGradePointsRow[totalGradePointsRow.length - 1].getElementsByClassName('PSEDITBOX_DISPONLY');
+					var totalGradePointsText = parseFloat(totalGradePointsColumn[totalGradePointsColumn.length -1].innerHTML);
+					console.log('GRADE POINTS TOTAL = ' + totalGradePointsText);
+
+					//Get UNITS TAKEN VALUE
+					var unitsTakenRow = gpaTable[gpaTable.length - 2].getElementsByTagName('td')
+					var unitsTakenColumn = unitsTakenRow[unitsTakenRow.length - 1].getElementsByClassName('PSEDITBOX_DISPONLY');
+					var unitsTakenText = parseFloat(unitsTakenColumn[unitsTakenColumn.length -1].innerHTML);
+					console.log('UNITS TAKEN = ' + unitsTakenText);
+
+					correctGPA = Number((totalGradePointsText/unitsTakenText).toFixed(3));
+
 					
 					//Exact GPA
 					//document.getElementById('current_gpa').innerHTML = 'Current GPA: ' + Number((total/units).toFixed(3));
 					//Rounded GPA
-					document.getElementById('current_gpa').innerHTML = 'Current GPA: ' + myGPA;
+					document.getElementById('current_gpa').innerHTML = 'Current GPA: ' + correctGPA;
 					document.getElementById('projected_gpa').innerHTML = 'Projected GPA: --';
 				}
 			}
@@ -569,85 +515,35 @@
 		var unitRow13 = document.getElementById('DERIVED_SSS_GRD_DESCR1$13');
 		var unitRow14 = document.getElementById('DERIVED_SSS_GRD_DESCR1$14');
 
-		//Runs through a series of if statements comparing the innerHTML in each row to a certain string
-		//If the innerHTML == string then we can pull the ID of the STATS_CUM$(Row #) to be the variable
+		
+		/*
+			Get the total grade points and units taken value by iterating through the table with id = TERM_STATS$scroll$0
+			Then get all the <tr> elements in the table
+			The last three <tr> elements are TOTAL GRADE POINTS, UNITS TAKEN, and GPA respectively.
+			Get the last <td> element of each <tr> element to retrieve the text of the fields.
+			
+		*/
 
-		/********************************** ---Total Grade Points--- ************************************/
-		var total_grade_points;
-		if(unitRow10 == 'Total Grade Points')
-		{
-			//console.log("Total Grade Points");
-			total_grade_points = document.getElementById('STATS_CUMS$10');
-			//console.log(total_grade_points);
-		}
-		if(unitRow11)
-		{	
-			if(unitRow11.innerHTML == 'Total Grade Points')
-			{
-				//console.log("Total Grade Points");
-				total_grade_points = document.getElementById('STATS_CUMS$11');
-				//console.log(total_grade_points);
-			}
-		}	
-		if (unitRow12)
-		{
-			if(unitRow12.innerHTML == 'Total Grade Points')
-			{
-				//console.log("Total Grade Points");
-				total_grade_points = document.getElementById('STATS_CUMS$12');
-				//console.log(total_grade_points);
-			}
-		}
-		if(unitRow13)
-		{	
-			if(unitRow13.innerHTML == 'Total Grade Points')
-			{
-				//console.log("Total Grade Points");
-				total_grade_points = document.getElementById('STATS_CUMS$13');
-				//console.log(total_grade_points);
-			}
-		}
-		/********************************** ---Calculating Units Taken--- ************************************/
-		var units_taken;
-		if(unitRow11)
-		{	
-			if(unitRow11.innerHTML == '/&nbsp Units Taken Toward GPA')
-			{
-				//console.log("Total Grade Points");
-				units_taken = document.getElementById('STATS_CUMS$11');
-				//console.log(total_grade_points);
-			}
-		}	
-		if(unitRow12)
-		{
-			if(unitRow12.innerHTML == '/&nbsp; Units Taken Toward GPA')
-			{
-				//console.log("Units Taken Towards GPA");
-				units_taken = document.getElementById('STATS_CUMS$12');
-				//console.log(units_taken);
-			}
-		}	
-		if (unitRow13)
-		{
-			if(unitRow13.innerHTML == '/&nbsp; Units Taken Toward GPA')
-			{
-				//console.log("Units Taken Towards GPA");
-				units_taken = document.getElementById('STATS_CUMS$13');
-				//console.log(units_taken);
-			}
-		}
-		if(unitRow14)
-		{	
-			if(unitRow14.innerHTML == '/&nbsp; Units Taken Toward GPA')
-			{
-				//console.log("Units Taken Towards GPA");
-				units_taken = document.getElementById('STATS_CUMS$14');
-				//console.log(units_taken);
-			}
-		}
+		//GET TABLE
+		var gpaTable = document.getElementById('TERM_STATS$scroll$0').getElementsByTagName('tr');
+		
+		//Get value for TOTAL GRADE POINTS
+		var totalGradePointsRow = gpaTable[gpaTable.length - 3].getElementsByTagName('td')
+		var totalGradePointsColumn = totalGradePointsRow[totalGradePointsRow.length - 1].getElementsByClassName('PSEDITBOX_DISPONLY');
+		var totalGradePointsText = parseFloat(totalGradePointsColumn[totalGradePointsColumn.length -1].innerHTML);
+		//console.log('GRADE POINTS TOTAL = ' + totalGradePointsText);
 
-		var total = parseFloat(total_grade_points.innerHTML);			
-		var units = parseFloat(units_taken.innerHTML);
+		//Get value for UNITS TAKEN
+		var unitsTakenRow = gpaTable[gpaTable.length - 2].getElementsByTagName('td')
+		var unitsTakenColumn = unitsTakenRow[unitsTakenRow.length - 1].getElementsByClassName('PSEDITBOX_DISPONLY');
+		var unitsTakenText = parseFloat(unitsTakenColumn[unitsTakenColumn.length -1].innerHTML);
+		//console.log('UNITS TAKEN = ' + unitsTakenText);
+
+		/////////////////////////////
+
+		//Parse the values.
+		var total = parseFloat(totalGradePointsText);			
+		var units = parseFloat(unitsTakenText);
 		
 		var new_units = 0;
 		var new_towards_gpa = 0;
@@ -656,7 +552,6 @@
 		for (var i = 0; i < rows;i++)
 		{	
 			credit_unit = parseFloat(document.getElementById('unit_' + i).innerHTML)
-			console.log(document.getElementById('grade_' + i).value);
 			if ((document.getElementById('grade_' + i).value) != 'W' && (document.getElementById('grade_' + i).value) != 'Au' && (document.getElementById('grade_' + i).value) != 'S'){
 				new_units += floatFromLetterGrade(document.getElementById('grade_' + i).value) * credit_unit;
 				new_towards_gpa += credit_unit;
@@ -664,6 +559,9 @@
 		}
 		total += new_units;
 		units += new_towards_gpa;
+
+		//console.log('TESTING TOTAL ' + total);
+		//console.log('TESTING UNITS ' + units);
 		
 		document.getElementById('projected_gpa').innerHTML = 'Projected GPA: ' + Number((total/units).toFixed(3));
 	}
