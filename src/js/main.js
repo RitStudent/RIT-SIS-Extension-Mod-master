@@ -17,6 +17,24 @@
  * Added/Changed Footer, moved buttons, added buttons/button images
  */
 
+ /*
+ * Updated: Fall 2013
+ *
+ * Documentation and Syntax added
+ *
+ * Changes: Removed twitter, removed suggestion box pop-up, edited header, 
+ * Added/Changed Footer, moved buttons, added buttons/button images
+ */
+
+  /*
+ * Updated: Spring 2014
+ *
+ * Documentation and Syntax added
+ *
+ * Changes: Worked on Footer problems, lots of improvement for Chrome & Safari,
+ * no improvement on Firefox
+ */
+
  	//Hexidecimal colors used 
     var ritOrange = "#F36E21";
     var ritBrown = "#513127";
@@ -84,26 +102,59 @@
     var itsSISURL = "https://www.rit.edu/its/help/peoplesoftsupport/";
 
     //Variable for the root of all sublinks
-    var rootURL = "https://campus.rit.edu";
+    //var rootURL = "https://campus.rit.edu";
+    var documentURL = document.URL;
     
-    var homeLink = rootURL + "/psp/TRITXJ/EMPLOYEE/HRMS/h/?tab=DEFAULT";
+    if (documentURL.indexOf("https") != -1){
+		var protocol = documentURL.substring(0,8);
+		
+		var restOfURL = documentURL.substring(8);
+		
+		var subURL = restOfURL.substring(0,restOfURL.indexOf("/"));
+		
+	}
+	else{
+		var protocol = documentURL.substring(0,7);
+		
+		var restOfURL = documentURL.substring(7);
+		
+		var subURL = restOfURL.substring(0,restOfURL.indexOf("/"));
+		
+	}
+    var rootURL = protocol + subURL;
+    
+    
+    if (documentURL.indexOf("campus.rit.edu") != -1){
+    	rootURL = rootURL + "/psp/PRITXJ/";
+    }
+    else if (documentURL.indexOf("campustest2.rit.edu") != -1 || documentURL.indexOf("campustest.rit.edu") != -1){
+    	rootURL = rootURL + "/psp/TRITXJ/";
+    }
+    else if (documentURL.indexOf("campusstg.rit.edu") != -1){
+    	rootURL = rootURL + "/psp/SRITXJ/";
+    }
+    else if (documentURL.indexOf("campusdev.rit.edu") != -1){
+    	rootURL = rootURL + "/psp/DRITXJ/";
+    }
+   
+    var homeLink = rootURL + "EMPLOYEE/HRMS/h/?tab=DEFAULT";
 
     //Variable is a link to Search Courses
-    var courseSearchLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?Page=SSR_CLSRCH_ENTRY&Action=U";
+    var courseSearchLink = rootURL + "EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?Page=SSR_CLSRCH_ENTRY&Action=U";
     //Variable is a link to Shopping Cart
-    var shoppingCartLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES_2.SSR_SSENRL_CART.GBL?Page=SSR_SSENRL_CART&Action=A";
+    var shoppingCartLink = rootURL + "EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES_2.SSR_SSENRL_CART.GBL?Page=SSR_SSENRL_CART&Action=A";
     //Variable is a link to the Student Center
-    var studentCenterLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?PORTALPARAM_PTCNAV=HC_SSS_STUDENT_CENTER&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HC_SSS_STUDENT_CENTER&IsFolder=false";
+    var studentCenterLink = rootURL + "EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?PORTALPARAM_PTCNAV=HC_SSS_STUDENT_CENTER&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HC_SSS_STUDENT_CENTER&IsFolder=false";
     //Variable is a link to the Favorites
-    var addToFavoritesLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/s/WEBLIB_PTIFRAME.ISCRIPT1.FieldFormula.IScript_PT_Popup";
+    var addToFavoritesLink = rootURL + "EMPLOYEE/HRMS/s/WEBLIB_PTIFRAME.ISCRIPT1.FieldFormula.IScript_PT_Popup";
     //Variable is a link to the Sign Out page
-    var signOutLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/?cmd=logout";
+    var signOutLink = rootURL + "EMPLOYEE/HRMS/?cmd=logout";
     //Variable is a link to the Grades page
-    var gradesLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_GRADE.GBL?Page=SSR_SSENRL_GRADE&Action=A&ExactKeys=Y&EMPLID=000000000&TargetFrameName=None";
+    var gradesLink = rootURL + "EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_GRADE.GBL?Page=SSR_SSENRL_GRADE&Action=A&ExactKeys=Y&EMPLID=000000000&TargetFrameName=None";
     //Variable is a link to the Class Schedule
-    var classScheduleLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL?Page=SSR_SSENRL_LIST&Action=A&ACAD_CAREER=UGRD&EMPLID=000000000&ENRL_REQUEST_ID=&INSTITUTION=RIT01&STRM=2131";
+    var classScheduleLink = rootURL + "EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL?Page=SSR_SSENRL_LIST&Action=A&ACAD_CAREER=UGRD&EMPLID=000000000&ENRL_REQUEST_ID=&INSTITUTION=RIT01&STRM=2131";
     
-    var gpaLink = rootURL + "/psp/PRITXJ/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?Page=";
+    var gpaLink = rootURL + "EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?Page=";
     //Variable is a link to the Student Goverment Voting Page
     var sgVoteLink = "http://vote.rit.edu";
     //Variable is a link to the SIS Extension Facebook Page
@@ -131,9 +182,11 @@
 		//Check to see if you are on the search courses page
 		//If so add autocomplete box in search field
 		if(onCourseSearchPage()){
+			
 			constructAutocompleteBox();
 			majorAutocomplete();
 			addAutoCompleteInterval = setInterval(function(){
+				
 				constructAutocompleteBox();
 				majorAutocomplete();
 			}, 3000);
@@ -249,142 +302,6 @@
     		courseDiv2.style.width = '140px';
     	}
     }
-    
-/***** ---START TWITTER--- *****/
-
-/*
-    function addTwitterBox() {
-    	if (window.innerWidth > 1429) {
-    		// Load Tweet plugin		
-			if (!(document.getElementById("twitterDiv"))) {
-	            
-	           	// embed twitter feed
-	           	
-	           	// container
-	           	var twitterContainer = document.createElement("div");
-	           	twitterContainer.setAttribute("id","twitterDiv");
-	           	
-	           	// header
-	           	var twitterHeader = document.createElement("h3");
-	           	twitterHeader.setAttribute("id","twitterHeader");
-	           	twitterHeader.appendChild(document.createTextNode("RIT Twitter Feed"));
-	           	
-   				// outer div for the tab widget
-   				var twitterFeedDiv = document.createElement("div");
-   				twitterFeedDiv.setAttribute("id","tweetTabs");
-   				
-   				// the unordered list for the tabs
-   				var feedList = document.createElement("ul");
-   				
-   				// ritnews item
-   				var ritNewsItem = document.createElement("li");
-   				
-   				var ritNewsItemLink = document.createElement("a");
-   				ritNewsItemLink.setAttribute("href","#ritNewsTab");
-   				ritNewsItemLink.appendChild(document.createTextNode("RIT News"));
-   				
-   				ritNewsItem.appendChild(ritNewsItemLink);
-   				
-   				// rit sports item
-   				var ritSportsItem = document.createElement("li");
-   				
-   				var ritSportsItemLink = document.createElement("a");
-   				ritSportsItemLink.setAttribute("href","#ritSportsTab");
-   				ritSportsItemLink.appendChild(document.createTextNode("RIT Athletics"));
-   				
-   				ritSportsItem.appendChild(ritSportsItemLink);
-   				
-   				// rit student governement item
-   				var ritSGItem = document.createElement("li");
-   				
-   				var ritSGItemLink = document.createElement("a");
-   				ritSGItemLink.setAttribute("href","#ritSGTab");
-   				ritSGItemLink.appendChild(document.createTextNode("RIT_SG"));
-   				
-   				ritSGItem.appendChild(ritSGItemLink);
-   				
-   				
-   				// append the items to the list
-   				feedList.appendChild(ritNewsItem);
-   				feedList.appendChild(ritSportsItem);
-   				feedList.appendChild(ritSGItem);
-   				
-   				twitterFeedDiv.appendChild(feedList);
-   				
-   				// the tab divs
-   				var newsTab = document.createElement("div");
-   				newsTab.setAttribute("id","ritNewsTab");
-   				
-   				var sportsTab = document.createElement("div");
-   				sportsTab.setAttribute("id","ritSportsTab");
-   				
-   				var sgTab = document.createElement("div");
-   				sgTab.setAttribute("id","ritSGTab");
-   				
-   				
-   				// append the tab divs the feed div
-   				twitterFeedDiv.appendChild(newsTab);
-   				twitterFeedDiv.appendChild(sportsTab);
-   				twitterFeedDiv.appendChild(sgTab);
-   				
-   				// append to the container
-   				twitterContainer.appendChild(twitterHeader);
-   				twitterContainer.appendChild(twitterFeedDiv);
-   				
-   				
-   				
-   				// put it on the page
-   				document.body.appendChild(twitterContainer);
-   				
-   				
-   				$("#ritNewsTab").html('<a class="twitter-timeline" href="https://twitter.com/RITNEWS" data-widget-id="362960666023317504">Tweets by @RITNEWS</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>');
- 
- 				$("#ritSportsTab").html('<a class="twitter-timeline" href="https://twitter.com/RITsports" data-widget-id="362969586641022976">Tweets by @RITsports</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>');
- 				
- 				$("#ritSGTab").html('<a class="twitter-timeline" href="https://twitter.com/RIT_SG" data-widget-id="362969903667482625">Tweets by @RIT_SG</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>');
- 				  				
-   							 
-   				
-   				$("#tweetTabs").tabs();
-   				 
-            }   
-    	}else {
-    		var tweetBox = document.getElementById('tweets');
-    		if (tweetBox) {
-	    		tweetBox.parentNode.removeChild(tweetBox);
-    		}
-    	}
-    }
-
-
-    function selectTwitterFeed(feed_id, div_id) {
-    	var tweets = document.getElementById('tweets');
-    	if (tweets) {
-    	
-    		// Clear contents before adding new tweets
-	    	tweets.innerHTML = twitterFeedHeader;
-    	
-	    	var twitter_titles = document.getElementsByClassName('twitter_titles');
-	    	// Clear class names
-	    	for (var i = 0; i < twitter_titles.length; i++) {
-	    		twitter_titles[i].className = 'twitter_titles';
-	    	}
-	    	var tweet_title_div = document.getElementById(div_id);
-	    	
-	    	tweet_title_div.className += " selected_orange";
-	    	
-    		getTwitters('tweets', {
-      		  	id: feed_id, 
-       			 prefix: '<img height="16" width="16" src="%profile_image_url%" /><a href="http://twitter.com/%screen_name%">%name%</a> said: ', 
-       			 clearContents: false, // leave the original message in place
-       			 count: 5, 
-       			 ignoreReplies: true,
-       			 newwindow: true
-   				 });
-		 }
-    }
-*/
-/***** ---END TWITTER--- *****/
 	
 /***** ---START GPA STYLING AND CALCULATION SCRIPTS--- *****/   	
 	function addGPAModelBox(){
@@ -430,22 +347,6 @@
 				
 					var gpa_box = create('<div id="gpa_model_box">' + gpa_model_header + gpa_model_body + gpa_model_footer + '</div>');
 					document.body.appendChild(gpa_box);
-					
-					/*
-					If you're taken classes STATS_CUM$4 exist
-					If you're auditing a class STATS_CUM$8 exist
-					
-					STATS_CUMS$2 = Units towards GPA: Taken
-					STATS_CUMS$3 = Units towards GPA: Passed
-					STATS_CUMS$4 = Units towards GPA: Progess (If you're enrolled in classes this exist)
-					STATS_CUMS$(6 or 7) = Units not for GPA: Taken
-					STATS_CUMS$(7 or 8) = Units not for GPA: Passed
-					STATS_CUMS$8 = Units not for GPA: Audited (If you're have audited a class this exist)
-					STATS_CUMS$(8 or 9 or 10) = Units not for GPA: Transfer Units
-					STATS_CUMS$(11 or 12 or 13) = Total Grade points 
-					STATS_CUMS$(12 or 13 or 14) = Units taken towards GPA 
-					STATS_CUMS$(13 or 14 or 15) = GPA 
-					*/
 
 					//GETS THE LAST ELEMENT OF THE TABLE AND THE GPA TEXT VALUE
 					var gpaSpanElements = document.getElementsByClassName('PSEDITBOXLABEL');
@@ -463,7 +364,6 @@
 					Then get all the <tr> elements in the table
 					The last three <tr> elements are TOTAL GRADE POINTS, UNITS TAKEN, and GPA respectively.
 					Get the last <td> element of each <tr> element to retrieve the text of the fields.
-			
 					*/
 
 					//GET TABLE
@@ -521,7 +421,6 @@
 			Then get all the <tr> elements in the table
 			The last three <tr> elements are TOTAL GRADE POINTS, UNITS TAKEN, and GPA respectively.
 			Get the last <td> element of each <tr> element to retrieve the text of the fields.
-			
 		*/
 
 		//GET TABLE
@@ -615,20 +514,35 @@
 			
             // You can use native DOM methods to insert the fragment:
 	    	var majorInput = document.getElementById('win0divCLASS_SRCH_WRK2_SUBJECT$71$');
+	    	
+	    	var majorInputTest = document.getElementById("win0divSSR_CLSRCH_WRK_SUBJECT$75$$0");
+	    	
             if (majorInput){
             	majorInput.parentNode.appendChild(fragment);
+        	}
+        	else if (majorInputTest){
+        		majorInputTest.parentNode.appendChild(fragment);
         	}
         }
    	}
    	
    	//Only needs to be done once
 	 var majorInput = document.getElementById('win0divCLASS_SRCH_WRK2_SUBJECT$71$');
+	 
+	 var majorInputTest = document.getElementById("win0divSSR_CLSRCH_WRK_SUBJECT$75$$0");
 	 if(majorInput){
 	 	if (majorInput.value != 'Start typing in a major'){
 			 majorInput.style.color = "#777";
 			 majorInput.value = 'Start typing in a major';
 		}
+	 }
+	else if (majorInputTest){
+		if (majorInputTest.value != 'Start typing in a major'){
+			 majorInputTest.style.color = "#777";
+			 majorInputTest.value = 'Start typing in a major';
+		}
 	}
+	
 	//Make sure the window is scrolled to the top
 	window.scroll(0,0);
 	
@@ -646,6 +560,8 @@
     	}
     
     	var majorInput = document.getElementById('CLASS_SRCH_WRK2_SUBJECT$71$');
+    	
+    	var testInput = document.getElementById("SSR_CLSRCH_WRK_SUBJECT$75$$0");
 		if (majorInput){
 			majorInput.maxLength = 50;
 			majorInput.style.width = '150px';
@@ -763,14 +679,139 @@
 					suggestions.style.visibility = 'hidden';
 				}
 			}
-		}    	    	
+		}   
+		else if (testInput){
+			testInput.maxLength = 50;
+			testInput.style.width = '150px';
+
+			if (testInput.value == ''){
+				var suggestions = document.getElementById('suggestions');
+				suggestions.style.visibility = 'hidden';
+				testInput.style.color = "#777";
+
+				if (initialLabel == false){
+					testInput.value = "Start typing in a major";
+					initialLabel = true;
+				}
+			}
+			if (initialLabel == false){
+				testInput.value = "Start typing in a major";
+				initialLabel = true;
+			}
+			testInput.onclick = (function(){
+				if (testInput.value == 'Start typing in a major' || testInput.value == 'START TY'){
+					testInput.style.color = "#000000";
+					testInput.value = '';    	
+				}
+			});
+			testInput.onkeyup = (function(event){
+				// Arrow up event
+				if (event.keyCode == 40 || event.keyCode == 38){
+					var list = document.getElementsByTagName('ul');
+					var listChilds = list[0].childNodes;
+					var noMatch = true;
+					for (var i= 0; i < listChilds.length; i++){
+						if (listChilds[i].className.match('selected')){
+							if (event.keyCode == 40) {
+								if (i+1 <= listChilds.length){
+									listChilds[i+1].className += " " + "selected";
+									listChilds[i].className = 'suggestion_option';
+								}
+							}
+							else if(event.keyCode == 38){
+								if (i+1 >= 0){
+									listChilds[i-1].className += " " + "selected";
+									listChilds[i].className = 'suggestion_option';
+								}
+							}
+							noMatch = false;
+							return;
+						}
+					}
+					if (noMatch){
+						listChilds[0].className += " " + "selected";
+					}					
+				}
+				else if (event.keyCode == 13){
+				//Enter was pressed
+					if (testInput.value.length == 4){
+						var search = document.getElementById('CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH');
+						if (search){
+							window.location.href = search.href;
+						}
+					}
+				
+					var list = document.getElementsByTagName('ul');
+					var listChilds = list[0].childNodes;
+					var noMatch = true;
+					for (var i= 0; i < listChilds.length; i++) {
+						if (listChilds[i].className.match('selected')){
+							majorSelectedWithElement(listChilds[i]);
+						}
+					}
+				}
+				else{
+					var value = testInput.value;
+					var matches = getIndexes(majorNames, value);
+					var suggestions = document.getElementById('suggestions');
+					
+					if (testInput.value){
+						if (matches.length){
+							if (suggestions){
+								suggestions.style.visibility = 'visible';
+								// Remove all of the elements in the div before adding new ones
+								while (suggestions.hasChildNodes()) suggestions.removeChild(suggestions.firstChild);
+								//var fragment = create('<li class="suggestion_option"><span class="course_number">' + 'Search ' + ' </span>' + value + '</li>');
+								//suggestions.appendChild(fragment);
+								for(var i = 0; i < matches.length; i++){
+									var fragment = create('<li class="suggestion_option" id=' + alphaCodes[matches[i]] + '><span class="course_number">' + alphaCodes[matches[i]] + ' </span>' + majorNames[matches[i]] + '</li>');
+									suggestions.appendChild(fragment);
+								}
+								/*for (el in matches){
+									var fragment = create('<li class="suggestion_option" id=' + alphaCodes[matches[el]] + '><span class="course_number">' + alphaCodes[matches[el]] + ' </span>' + majorNames[matches[el]] + '</li>');
+									suggestions.appendChild(fragment);
+								}*/
+								// Add click event to suggestion box
+								var suggestionOptions = document.getElementsByClassName('suggestion_option');
+								
+								if (suggestionOptions){
+									for (var i = 0; i < suggestionOptions.length; i++){
+										if (suggestionOptions[i]){
+											suggestionOptions[i].onclick = majorSelected;
+										}
+									}
+								}	
+							}
+						}
+					}
+					else{
+					suggestions.style.visibility = 'hidden';
+					}
+				}
+			});
+			testInput.onblur = function(event){
+				if (testInput.value == ""){
+					testInput.style.color = "#777";
+					testInput.value = "Start typing in a major";
+					var suggestions = document.getElementById("suggestions");
+					suggestions.style.visibility = 'hidden';
+				}
+			}
+		} 	    	
     }
     
     function majorSelectedWithElement(element){
     	var suggestions = document.getElementById('suggestions');
 		var majorInput = document.getElementById('CLASS_SRCH_WRK2_SUBJECT$71$');
+		
+		var testInput = document.getElementById("SSR_CLSRCH_WRK_SUBJECT$75$$0");
+		
 		if (majorInput && suggestions){
 		    majorInput.value = (element).id;
+			suggestions.style.visibility = 'hidden';
+		}
+		else if (testInput && suggestions){
+			testInput.value = (element).id;
 			suggestions.style.visibility = 'hidden';
 		}    
     }
@@ -778,17 +819,33 @@
     function majorSelected(){
    		var suggestions = document.getElementById('suggestions');
 		var majorInput = document.getElementById('CLASS_SRCH_WRK2_SUBJECT$71$');
+		
+		var testInput = document.getElementById('SSR_CLSRCH_WRK_SUBJECT$75$$0');
+		
 		if (majorInput && suggestions){
 		    majorInput.value = (this).id;
+			suggestions.style.visibility = 'hidden';
+		}
+		else if (testInput && suggestions){
+			testInput.value = (this).id;
 			suggestions.style.visibility = 'hidden';
 		}
 	}
 
     var openClassesCheckBox = document.getElementById("CLASS_SRCH_WRK2_SSR_OPEN_ONLY");
+    
+    var openClassesCheckBoxTest = document.getElementById("SSR_CLSRCH_WRK_SSR_OPEN_ONLY$3");
+    
     if (openClassesCheckBox){
         if (openClassesCheckBox.checked){
             openClassesCheckBox.click;
         }
+    }
+    
+    if (openClassesCheckBoxTest){
+    	if (openClassesCheckBoxTest.checked){
+    		openClassesCheckBoxTest.click;
+    	}
     }
 
 
@@ -842,54 +899,7 @@
 			}
 		}
 		return false;
-	}
- 
- /***** ---START CREATING FEEDBACK BOX--- *****/
- 	/*
-    function constructFeedbackBox(){
-        if (!(document.getElementById('feedback_box'))){
-            var fragment = create('<div id="feedback_box">' + '<div id="top_feedback">' + '<span>Have a <a class="feedback_url" target="_blank" href="' + itsSISURL + '" title="Suggestion Reporting">suggestion?</a></span>' + '</div>' + '<div id="bottom_feedback">' + '<span>Submit an <a class="feedback_url" target="_blank" href="' + itsSISURL + '" title="Issue Reporting">issue or bugfix</a></span>' + '</div>' + '</div></div>');
-
-            // You can use native DOM methods to insert the fragment:
-            document.body.appendChild(fragment);
-            setFeedbackBoxStyle();
-        }
-    }
-
-    function setFeedbackBoxStyle(){
-        var feedback = document.getElementById('feedback_box');
-        if (feedback){
-            feedback.style.cssText = "position:absolute; position:fixed; z-index:9999;left: 0; bottom: 0;";
-            feedback.style.backgroundColor = "white";
-            feedback.style.border = "1px solid black";
-            feedback.style.padding = "10px 10px 10px 10px";
-            feedback.style.boxShadow = "0 0 3px black";
-            feedback.style.borderTopRightRadius = "5px";
-            feedback.style.fontSize = "small";
-        }
-
-        var topFeedback = document.getElementById('top_feedback');
-        if (topFeedback){
-            //topFeedback.style.cssText = "margin: 0 auto";
-            //topFeedback.style.width = "960px";
-        }
-
-        var bottomFeedback = document.getElementById('bottom_feedback');
-        if (bottomFeedback){
-            //bottomFeedback.style.float = "right";
-            //bottomFeedback.style.marginTop = '20px';
-        }
-
-        var feedbackURLS = document.getElementsByClassName('feedback_url');
-        if (feedbackURLS){
-            for (i = 0; i < feedbackURLS.length; i++){
-                feedbackURLS[i].style.color = ritOrange;
-                feedbackURLS[i].style.textDecoration = "none";
-            }
-        }
-    }
-   */ 
-/***** ---END FEEDBACK BOX--- *****/    
+	}   
     
 /***** ---START REMOVE OLD HEADER--- *****/    
     function removeOldHeader(){
@@ -994,25 +1004,33 @@
     function constructFooter(){
         if (!(document.getElementById('enhance_footer'))){
             var fragment = create('<div id="footer">' + '<div id="enhance_footer">' + '<div id="footer_contents">'
-            	+ '<p class="footer1">' 
-            	+ 'Copyright © <a href="' + ritURL + '">Rochester Institute of Technology.</a> All Rights Reserved'
-            	+ '<br><a href="' + ritCopyright + '">Copyright Infringement </a>'
-            	+ '| <a href="' + ritPrivacyStatement + '">Privacy Statement </a>'
-            	+ '| <a href="' + ritDisclaimer + '">Disclaimer </a>'
-            	+ '| <a href="' + ritNondiscrimination + '">Nondiscrimination </a></p>'
-            	+ '<p class="footer2">' 
-            	+ '<a href="' + ritMaps + '">One Lomb Memorial Drive, Rochester, NY 14623-5603 </a>'
-            	+ '<br>Questions or comments? <a href="' + itsSISURL + '">Send us feedback. </a>Telephone: 585-475-2411</p>'
-            	+ '</div></div></div>');
+                + '<p class="footer1">' 
+                + 'Copyright © <a href="' + ritURL + '" target="_blank">Rochester Institute of Technology.</a> All Rights Reserved'
+                + '<br><a href="' + ritCopyright + '" target="_blank">Copyright Infringement </a>'
+                + '| <a href="' + ritPrivacyStatement + '" target="_blank">Privacy Statement </a>'
+                + '| <a href="' + ritDisclaimer + '" target="_blank">Disclaimer </a>'
+                + '| <a href="' + ritNondiscrimination + '" target="_blank">Nondiscrimination </a></p>'
+                + '<p class="footer2">' 
+                + '<a href="' + ritMaps + '" target="_blank">One Lomb Memorial Drive, Rochester, NY 14623-5603 </a>'
+                + '<br>Questions or comments? <a href="' + itsSISURL + '" target="_blank">Send us feedback. </a>Telephone: 585-475-2411</p>'
+                + '</div></div></div>');
 
+            //You can use native DOM methods to insert the fragment:
+            //document.body.appendChild(fragment);
+            //var frame = document.getElementById("ptifrmtgtframe");
+            var frame = document.getElementsByClassName("PSPAGE");
+			console.log(frame);
 
-            /*
-            	+ '<div id="center_footer">' 
-            	+ '<span>Improved and enhanced by the RIT <a id="facebook_url" href="' + facebookURL + '" target="_blank" onclick="_gaq.push([\'_trackEvent\', \'Facebook\', \'Selected\', \'Footer Link\']); title="Student Body">student body.</a></span>' 
-            	+ '</div></div></div>');
-            */
-            // You can use native DOM methods to insert the fragment:
-            document.body.appendChild(fragment);
+            var frameDoc = frame[0];
+            console.log(frameDoc);
+        	
+            var children = frameDoc.childNodes;
+            console.log(children[children.length - 1].id);
+
+            if ((children[children.length - 1].id != "footer")){
+                frameDoc.appendChild(fragment);
+            }
+
         }
     }
 

@@ -14,27 +14,31 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="javascript/main.js"></script>
 		<script type="text/javascript" src="galleria/galleria-1.2.7.min.js"></script>
-		
 		<!-- 	Galleria Theme Setter	 -->
-
 		<script type="text/javascript">
    			 Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
    			 Galleria.run('#galleria');
     	</script>
-
-		<!-- 	End of Galleria Theme Setter	 -->
-		
+		<!--End of Galleria Theme Setter-->
+		<script>
+		function disclaimerFunction()
+		{
+			alert("THE EXTENSION IS INTENDED FOR STUDENTS ONLY!");
+		}
+		</script>	
 		<!--#include virtual="includes/analytics.html" -->
+
 	</head>
 	<body>
-	<!--#include virtual="includes/header.html" -->
-	<div id="page_wrap">
 
-                <!--#include virtual="includes/disclaimer.html" -->
-		<h4 class="margin_top_20">Select which browser you will use the SIS system with:</h4>
+	<!--#include virtual="includes/header.html" -->
+
+	<div id="page_wrap">
+		<!--#include virtual="includes/disclaimer.html" -->
+		<h4 class="margin_top_25">Select which browser you will use the SIS system with:</h4>
 		<div id="browser_select">
 			<ul id="browser_list">
-				<li id="chrome" onclick="_gaq.push(['_trackEvent', 'Browser', 'Selected', 'Chrome']);window.location.href='chrome.html'">
+				<li id="chrome" onclick="disclaimerFunction();_gaq.push(['_trackEvent', 'Browser', 'Selected', 'Chrome']);window.location.href='chrome.html'">
 					<img id="browser_logo" src="images/chrome_logo.png" alt="Chrome Logo" width="90" height="90"/>
 					<span>Google Chrome</span>
 					<div class="tested_versions no_cursor">
@@ -43,7 +47,7 @@
 						<div class="align_center">Download <a href="http://www.google.com/chrome">Chrome</a></div>
 					</div>
 				</li>
-				<li id="firefox" onclick="_gaq.push(['_trackEvent', 'Browser', 'Selected', 'Firefox']);window.location.href='firefox.html'">
+				<li id="firefox" onclick="disclaimerFunction();_gaq.push(['_trackEvent', 'Browser', 'Selected', 'Firefox']);window.location.href='firefox.html'">
 					<img id="browser_logo" src="images/firefox_logo.png" alt="Firefox Logo" width="90" height="90"/>
 					<span>Mozilla Firefox</span>
 					<div class="tested_versions">
@@ -52,7 +56,7 @@
 						<div class="align_center">Download <a href="http://www.mozilla.org/firefox">Firefox</a></div>
 					</div>
 				</li>
-				<li id="safari" onclick="_gaq.push(['_trackEvent', 'Browser', 'Selected', 'Safari']);window.location.href='safari.html'">
+				<li id="safari" onclick="disclaimerFunction();_gaq.push(['_trackEvent', 'Browser', 'Selected', 'Safari']);window.location.href='safari.html'">
 					<img id="browser_logo" src="images/safari_logo.png" alt="Safari Logo" width="86" height="94"/>
 					<span>Apple Safari</span>
 					<div class="tested_versions">
@@ -65,7 +69,7 @@
 		</div>
 		<!-- 	End of browser select	 -->
 
-		<div style="margin-top:105px;">
+		<div style="margin-top:65px;">
 		<h2 style="position:absolute;">Current Features</h2>
 		<ul id="feature_list" style="width:200px;position:absolute; margin-top:50px;">
 			<li>Autocomplete functionality for major code selection (i.e. search by your major name)</li>
@@ -79,16 +83,16 @@
 		</div>	
 
 		<div class="align_center" style="margin:0 0 0 260px;">
-			<!--	<h2>Now includes a GPA Model for calculating your projected GPA!</h2>
+		<!--	<h2>Now includes a GPA Model for calculating your projected GPA!</h2>
 		<br/>
-		<h2>Screenshots:</h2>	-->
+		<h2>Screenshots:</h2>-->
 		<!--
-<p>We have developed a simple web browser plug-in that makes the new SIS system more user friendly.
+		<p>We have developed a simple web browser plug-in that makes the new SIS system more user friendly.
 			We are continually improving and enhancing the system to make it a more enjoyable experience for students.
 			Interested in getting involved or sending us feedback? Click on one of our names below to send us an email.
 			We are always open to new ideas and suggestions.
 		</p>
--->
+		-->
 		<div id="galleria" style="height: 500px; width: 800px;">
     		<img data-title="Added more consistent RIT branding and easy access links!" src="images/user_screenshots/studentCenter.png">
 			<img data-title="GPA Model to calculate projected grades on the grades page" src="images/user_screenshots/grades.png">
@@ -96,12 +100,11 @@
     		<img data-title="View your course names when they are in your shopping cart!" src="images/user_screenshots/class_names_screenshot.png">
 		</div>
 		<!--
-<h1>OR</h1>
+		<h1>OR</h1>
 		<h4>Don't think you need instructions? Click here to download the extension.</h4>
 		<a href="https://people.rit.edu/~tjd9961/SIS/sismod.user.js" onclick="_gaq.push(['_trackEvent', 'Script', 'Downloaded', 'Main Page']);"><span class="download">SIS Extension Download</span></a>
--->
+		-->
 		</div>
-		
 		<!-- End of browser_list -->
 		</div>
 		<!-- End of page_wrap -->
